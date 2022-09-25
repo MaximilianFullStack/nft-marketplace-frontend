@@ -1,0 +1,73 @@
+.contents {
+    margin-top: 7rem;
+    margin-left: 10%;
+}
+
+.recentListings {
+    display: grid;
+}
+
+.listing {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(237, 240, 245);
+    border-radius: 12px;
+    max-width: 220px;
+    max-height: 400px;
+    font-family: inherit;
+}
+
+.id {
+    margin-left: auto;
+    margin-right: 12px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    font-size: 13px;
+    color: rgb(165, 165, 165);
+}
+
+.owned {
+    margin-left: auto;
+    margin-right: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 13px;
+    font-style: italic;
+    color: rgb(165, 165, 165);
+}
+
+.art {
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.price {
+    margin-left: auto;
+    margin-top: 8px;
+    margin-right: 12px;
+    margin-bottom: 0px;
+    color: rgb(165, 165, 165);
+    font-weight: 600;
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.name {
+    color: rgb(104, 140, 182);
+    margin-top: 8px;
+    margin-bottom: 4px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.description {
+    color: rgb(104, 140, 182);
+    margin-top: 0;
+    font-size: 14px;
+}
