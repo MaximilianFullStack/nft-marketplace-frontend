@@ -22,7 +22,12 @@ const GET_ACTIVE_ITEMS = gql`
 export default function Listings() {
     const { loading, error, data: listedNFTs } = useQuery(GET_ACTIVE_ITEMS)
 
-    if (loading) return <div>Submitting...</div>
+    if (loading)
+        return (
+            <div className="contents">
+                <h2>Loading...</h2>
+            </div>
+        )
     if (error) return <div>{error.message}</div>
 
     const listing = listedNFTs.activeItems.map((item, index) => (

@@ -5,10 +5,16 @@ import ConnectMenu from "./Connect"
 export default function Navbar() {
     return (
         <div className="bar">
-            <h1 className="title">NFT Marketplace</h1>
+            <a href="/" className="title">
+                <h1 className="title">NFT Marketplace</h1>
+            </a>
             <div className="buttons">
-                <h2>Home</h2>
-                <h2>Sell NFT</h2>
+                <a href="/">
+                    <h2>Home</h2>
+                </a>
+                <a href="/list">
+                    <h2>Sell NFT</h2>
+                </a>
             </div>
             <div className="con">
                 <ConnectMenu />

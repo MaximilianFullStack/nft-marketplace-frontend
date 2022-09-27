@@ -1,0 +1,47 @@
+.page {
+    margin-top: 7rem;
+    margin-left: 20%;
+    width: 60%;
+    min-height: 800px;
+    background-color: rgb(237, 240, 245);
+    border-radius: 12px;
+}
+
+.nft {
+    border-radius: 12px;
+    border-style: dashed;
+    border-width: 2px;
+    max-width: 350px;
+    width: 100%;
+    border-color: rgb(146, 146, 146);
+    margin-left: 2%;
+    margin-top: 1%;
+}
+
+.nameId {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    max-width: 350px;
+    width: 100%;
+    justify-content: center;
+    margin-left: 2%;
+    margin-top: 14px;
+}
+
+.nameId > h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 12px;
+}
+
+.desc {
+    margin: 0;
+    margin-left: 2%;
+    margin-top: 10px;
+    max-width: 350px;
+}
+
+.actions {
+    width: 100%;
+}

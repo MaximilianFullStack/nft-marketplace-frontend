@@ -8,3 +8,18 @@ body {
     margin: 0;
     font-family: "Merriweather", serif;
 }
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+}
+
+a:hover {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+a:visited {
+    text-decoration: none;
+}

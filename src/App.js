@@ -1,13 +1,18 @@
 import React from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import "./styles/main.css"
-import Navbar from "./components/Navbar"
-import Listings from "./components/Listings"
+import Main from "./pages/Main"
+import ListingPage from "./pages/ListingPage"
+import Sell from "./pages/Sell"
 
 export default function App() {
     return (
-        <>
-            <Navbar />
-            <Listings />
-        </>
+        <Router>
+            <Routes>
+                <Route path="" element={<Main />} />
+                <Route path="/*" element={<ListingPage />} />
+                <Route path="/list" element={<Sell />} />
+            </Routes>
+        </Router>
     )
 }
