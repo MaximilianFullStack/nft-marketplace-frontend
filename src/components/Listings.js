@@ -28,7 +28,7 @@ export default function Listings() {
                 <h2>Loading...</h2>
             </div>
         )
-    if (error) return <div>{error.message}</div>
+    if (error) return <div className="contents">{error.message}</div>
 
     const listing = listedNFTs.activeItems.map((item, index) => (
         <Listing key={index} {...item} />
