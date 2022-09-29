@@ -11,6 +11,7 @@ export default function ListingInfo() {
     const [desc, setDesc] = useState("")
     const [image, setImage] = useState("")
 
+    const [updatedPrice, setUpdatedPrice] = useState(null)
     const [isOwner, setIsOwner] = useState(false)
 
     let provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -51,11 +52,18 @@ export default function ListingInfo() {
             abi.marketplace,
             signer
         )
-
-        try {
-            await marketplace.updateListing(address, tokenId, 0)
-        } catch (e) {
-            console.log(e)
+        if (updatedPrice !== null) {
+            try {
+                await marketplace.updateListing(
+                    address,
+                    tokenId,
+                    ethers.utils.parseEther(updatedPrice)
+                )
+            } catch (e) {
+                console.log(e)
+            }
+        } else {
+            console.warn("Input cannot be empty")
         }
     }
 
@@ -114,6 +122,15 @@ export default function ListingInfo() {
         )
     if (error) return <div className="contents">{error.message}</div>
 
+    async function checkOwner() {
+        const signer = await provider.getSigner(0)
+        let address = await signer.getAddress()
+        if (address.toLowerCase() === item.activeItems[0].seller) {
+            setIsOwner(true)
+        }
+    }
+    checkOwner()
+
     const owner =
         item.activeItems[0].seller.slice(0, 5) +
         "..." +
@@ -121,15 +138,6 @@ export default function ListingInfo() {
             item.activeItems[0].seller.length - 4,
             item.activeItems[0].seller.length
         )
-
-    async function checkOwner() {
-        const signer = await provider.getSigner(0)
-        let address = await signer.getAddress()
-        if (address === item.activeItems[0].seller) {
-            setIsOwner(true)
-        } else setIsOwner(false)
-    }
-    checkOwner()
 
     return (
         <div className="page">
@@ -147,7 +155,7 @@ export default function ListingInfo() {
                 <h3 style={{ margin: "4px" }}>
                     {ethers.utils.formatEther(item.activeItems[0].price)} ETH
                 </h3>
-                {isOwner ? (
+                {!isOwner ? (
                     <>
                         <h4 className="owner">Owned by {owner}</h4>
                         <button onClick={buyItem} className="buyButton">
@@ -162,6 +170,9 @@ export default function ListingInfo() {
                             min="0"
                             className="updateInput"
                             placeholder="Updated Price"
+                            onChange={(value) => {
+                                setUpdatedPrice(value.target.value)
+                            }}
                         />
                         <button onClick={updateListing} className="buyButton">
                             Update Listing
@@ -169,7 +180,7 @@ export default function ListingInfo() {
                         <button
                             onClick={cancelListing}
                             className="buyButton"
-                            style={{ margin: "8px" }}
+                            style={{ margin: "12px" }}
                         >
                             Cancel Listing
                         </button>

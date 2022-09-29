@@ -5,6 +5,7 @@
 
 .recentListings {
     display: grid;
+    grid-auto-flow: row;
 }
 
 .listing {
@@ -14,6 +15,7 @@
     border-radius: 12px;
     max-width: 220px;
     max-height: 400px;
+    width: 100%;
     font-family: inherit;
 }
 

@@ -10,6 +10,10 @@ export default function Listing(props) {
     const [desc, setDesc] = useState("")
     const [image, setImage] = useState("")
 
+    const [isOwner, setIsOwner] = useState(false)
+
+    let provider = new ethers.providers.Web3Provider(window.ethereum)
+
     const owner =
         props.seller.slice(0, 5) +
         "..." +
@@ -34,11 +38,25 @@ export default function Listing(props) {
     }
     getMeta()
 
+    async function checkOwner() {
+        const signer = await provider.getSigner(0)
+        let address = await signer.getAddress()
+        if (address.toLowerCase() === props.seller) {
+            setIsOwner(true)
+        }
+    }
+    checkOwner()
+
     return (
         <a href={`/${props.erc721}/${props.tokenId}`}>
             <div className="listing">
                 <p className="id">#{props.tokenId}</p>
-                <p className="owned">Owned by {owner}</p>
+                {isOwner ? (
+                    <p className="owned">Owned by You</p>
+                ) : (
+                    <p className="owned">Owned by {owner}</p>
+                )}
+
                 <img
                     src={`https://gateway.pinata.cloud/ipfs/${image}`}
                     alt="NFT"
