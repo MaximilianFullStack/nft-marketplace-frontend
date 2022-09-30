@@ -70,6 +70,7 @@
     background-color: rgb(255, 255, 255);
     border-color: rgb(175, 175, 175);
     min-width: 240px;
+    cursor: pointer;
 }
 
 .buyButton:hover {

@@ -5,7 +5,8 @@
 
 .recentListings {
     display: grid;
-    grid-auto-flow: row;
+    grid-auto-flow: column;
+    width: fit-content;
 }
 
 .listing {
@@ -13,9 +14,10 @@
     flex-direction: column;
     background-color: rgb(237, 240, 245);
     border-radius: 12px;
-    max-width: 220px;
+    max-width: 260px;
     max-height: 400px;
-    width: 100%;
+    min-width: 220px;
+    margin-right: 20px;
     font-family: inherit;
 }
 

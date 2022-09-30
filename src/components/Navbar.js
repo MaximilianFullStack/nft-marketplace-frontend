@@ -12,7 +12,7 @@ export default function Navbar() {
                 <a href="/">
                     <h2>Home</h2>
                 </a>
-                <a href="/list">
+                <a href="/user">
                     <h2>Sell NFT</h2>
                 </a>
             </div>

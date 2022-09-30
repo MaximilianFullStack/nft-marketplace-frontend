@@ -48,28 +48,30 @@ export default function Listing(props) {
     checkOwner()
 
     return (
-        <a href={`/${props.erc721}/${props.tokenId}`}>
-            <div className="listing">
-                <p className="id">#{props.tokenId}</p>
-                {isOwner ? (
-                    <p className="owned">Owned by You</p>
-                ) : (
-                    <p className="owned">Owned by {owner}</p>
-                )}
+        <div className="listing">
+            <a href={`/${props.erc721}/${props.tokenId}`}>
+                <div className="listing" style={{ margin: "0" }}>
+                    <p className="id">#{props.tokenId}</p>
+                    {isOwner ? (
+                        <p className="owned">Owned by You</p>
+                    ) : (
+                        <p className="owned">Owned by {owner}</p>
+                    )}
 
-                <img
-                    src={`https://gateway.pinata.cloud/ipfs/${image}`}
-                    alt="NFT"
-                    className="art"
-                />
-                <p className="price">
-                    {ethers.utils.formatEther(props.price)} ETH
-                </p>
-                <div className="desc">
-                    <h2 className="name">{assetName}</h2>
-                    <h2 className="description">{desc}</h2>
+                    <img
+                        src={`https://gateway.pinata.cloud/ipfs/${image}`}
+                        alt="NFT"
+                        className="art"
+                    />
+                    <p className="price">
+                        {ethers.utils.formatEther(props.price)} ETH
+                    </p>
+                    <div className="desc">
+                        <h2 className="name">{assetName}</h2>
+                        <h2 className="description">{desc}</h2>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
+        </div>
     )
 }

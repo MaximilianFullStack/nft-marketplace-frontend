@@ -11,7 +11,7 @@ export default function App() {
             <Routes>
                 <Route path="" element={<Main />} />
                 <Route path="/*" element={<ListingPage />} />
-                <Route path="/list" element={<Sell />} />
+                <Route path="/user" element={<Sell />} />
             </Routes>
         </Router>
     )
