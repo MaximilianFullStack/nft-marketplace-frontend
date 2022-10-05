@@ -15,8 +15,13 @@ export default function OwnedItem(props) {
 
             let obj = await JSON.parse(meta)
             obj = obj.image
-            obj = obj.substring(obj.lastIndexOf("/") + 1)
-            setArt(obj)
+            if (obj.substring(obj.lastIndexOf("/") + 1).length < 46) {
+                obj = obj.substring(obj.indexOf("//") + 2, obj.length)
+                setArt(obj)
+            } else {
+                obj = obj.substring(obj.lastIndexOf("/") + 1)
+                setArt(obj)
+            }
         }
     }
     getArt()

@@ -131,13 +131,17 @@ export default function ListingInfo() {
         fetch(`https://gateway.pinata.cloud/ipfs/${ipfs}`).then((r) => {
             r.text().then((d) => setMeta(d))
         })
-
         let obj = await JSON.parse(meta)
         setAsset(obj.name)
         setDesc(obj.description)
         obj = obj.image
-        obj = obj.substring(obj.lastIndexOf("/") + 1)
-        setImage(obj)
+        if (obj.substring(obj.lastIndexOf("/") + 1).length < 46) {
+            obj = obj.substring(obj.indexOf("//") + 2, obj.length)
+            setImage(obj)
+        } else {
+            obj = obj.substring(obj.lastIndexOf("/") + 1)
+            setImage(obj)
+        }
     }
     getMeta()
 
