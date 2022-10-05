@@ -3,18 +3,18 @@
     flex-direction: column;
 }
 
-.inputs > input {
+input {
     font-family: inherit;
     border-radius: 8px;
     border-style: dashed;
     border-color: rgb(50, 149, 179);
     font-size: 16px;
     padding: 8px 10px;
-    margin-bottom: 22px;
+    margin-top: 20px;
     max-width: 300px;
 }
 
-.inputs > input:focus {
+input:focus {
     outline: none;
     border-style: solid;
 }
